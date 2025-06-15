@@ -1,0 +1,115 @@
+ <!-- Contenido del Dashboard -->
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ... -->
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESTOTALK - Menú Digital</title>
+    <!-- Tailwind CSS (para diseño fácil) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Configuración de colores y fuentes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        background: '#F7FFF7',
+                        dark: '#292F36',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-primary hover:bg-red-500 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg hover:shadow-xl;
+            }
+            .card {
+                @apply bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen font-roboto">
+    <!-- Header (se repite en todas las páginas) -->
+    <header class="bg-primary text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-poppins font-bold">RESTOTALK</h1>
+                <nav>
+                    <a href="#" class="btn-primary">Iniciar Sesión</a>
+                    <a href="#" class="btn-primary ml-4">Registro</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido del Dashboard -->
+    <main class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-poppins font-bold mb-8">Panel de Control</h2>
+        
+        <!-- Sección Menú -->
+        <div class="card mb-12">
+            <h3 class="text-2xl font-poppins font-bold mb-6">🍽️ Tu Menú</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <input type="text" placeholder="Nombre del plato" class="p-3 border rounded-lg">
+                <input type="number" placeholder="Precio" class="p-3 border rounded-lg">
+            </div>
+            <button class="btn-primary mt-4">Añadir Plato</button>
+            
+            <!-- Lista de Platos -->
+            <div class="mt-8">
+                <h4 class="font-poppins font-bold mb-4">Tus Platos:</h4>
+                <ul class="space-y-2">
+                    <li class="flex justify-between p-3 bg-gray-50 rounded-lg">
+                        <span>🍕 Pizza Margarita</span>
+                        <span>$12.99</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sección QR -->
+        <div class="card">
+            <h3 class="text-2xl font-poppins font-bold mb-6">🔳 Tu Código QR</h3>
+            <div class="flex justify-center">
+                <div id="qrcode" class="p-4 bg-white rounded-lg shadow-inner"></div>
+            </div>
+            <button class="btn-primary mt-6">Descargar QR</button>
+        </div>
+    </main>
+
+    <!-- Script para generar QR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://ejemplo.com/menu.html?id=123",
+            width: 150,
+            height: 150
+        });
+    </script>
+
+    <!-- Footer (se repite en todas las páginas) -->
+    <footer class="bg-dark text-white py-8 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 RESTOTALK. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

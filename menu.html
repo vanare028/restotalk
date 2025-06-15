@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <head>
+  <!-- ... -->
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESTOTALK - Menú Digital</title>
+    <!-- Tailwind CSS (para diseño fácil) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Configuración de colores y fuentes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        background: '#F7FFF7',
+                        dark: '#292F36',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-primary hover:bg-red-500 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg hover:shadow-xl;
+            }
+            .card {
+                @apply bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen font-roboto">
+    <!-- Header (se repite en todas las páginas) -->
+    <header class="bg-primary text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-poppins font-bold">RESTOTALK</h1>
+                <nav>
+                    <a href="#" class="btn-primary">Iniciar Sesión</a>
+                    <a href="#" class="btn-primary ml-4">Registro</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+   <!-- Menú del Restaurante -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="card mb-12">
+            <h2 class="text-3xl font-poppins font-bold mb-6">🍴 Menú</h2>
+            <ul class="space-y-4">
+                <li class="flex justify-between p-4 bg-gray-50 rounded-lg">
+                    <span>🍕 Pizza Margarita</span>
+                    <span class="font-bold">$12.99</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Ruleta de Preguntas -->
+        <div class="card">
+            <h2 class="text-3xl font-poppins font-bold mb-6">🎡 Ruleta de Preguntas</h2>
+            <div class="text-center">
+                <button id="spinBtn" class="btn-primary mb-6">Girar Ruleta</button>
+                <div id="questionDisplay" class="p-6 bg-gray-50 rounded-lg text-xl font-poppins">
+                    Presiona "Girar Ruleta" para empezar.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script para la ruleta -->
+    <script>
+        const questions = [
+            "Si pudieras viajar a cualquier época, ¿cuál sería?",
+            "¿Cuál es tu película favorita y por qué?",
+            "¿Qué superpoder elegirías y cómo lo usarías?"
+        ];
+
+        document.getElementById("spinBtn").addEventListener("click", () => {
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+            document.getElementById("questionDisplay").textContent = randomQuestion;
+        });
+    </script>
+
+
+    <!-- Footer (se repite en todas las páginas) -->
+    <footer class="bg-dark text-white py-8 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 RESTOTALK. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
